@@ -11,86 +11,62 @@
     <link rel="stylesheet" href="{% static 'css/css/bootstrap.min.css'%}" >
     <script src="{% static 'css/js/bootstrap.bundle.min.js' %}"></script>
 
-
 </head>
 
+
+
 <body>
-    
-
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #336633;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-success">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+              <a class="navbar-brand" href="#">Perfil</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Principal</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Registar</a>
+                  </li>
 
-            
-                <a class="navbar-brand" href="#">
-                    <button class="btn btn-primary " style="background-color: #333300"> Perfil</button>
-                </a>
+                  <li>
+                    <a class="nav-link" href="#">Iniciar Sessão</a>
+                  </li>
 
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href=" {% url 'TesteUsuario:principal' %}">{{user}}</a>
-                        </li>
+                </ul>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'TesteUsuario:registar' %}">Registar</a>
-                        </li>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">OK</button>
+                </form>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'TesteUsuario:conetar' %}">Iniciar Sessão</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'TesteUsuario:carregarFoto' %}">Carregar Fotos</a>
-                        </li>
-
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'TesteUsuario:disconetar' %}">Disconectar</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" method="POST">
-                        {% csrf_token %}
-                        <input class="form-control me-2" type="search" placeholder="Nome da foto" aria-label="Search" name="pesquisa">
-                        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                    </form>
-                </div>
+              </div>
             </div>
-        </nav>
+          </nav>
     </header>
+
+
     
-    <main class="fotos">
-        
-        {% for foto in fotos %}
-            {% if user == foto.usuario %}
-                <a class="link" href="{% url 'TesteUsuario:visualFoto' foto.pk%}">
-                    <div class="card" style="background-color: #FFFFCC; font-family: Georgia, 'Times New Roman', Times, serif;">
-                        <img src="static/{{foto.foto}}" class="card-img-top" alt="..." height="180vh">
-                        <div class="card-body" >
-                            <h5 class="card-text" id ="titulo" >
-                                {{foto.titulo}}
-                                <hr>
-                            </h5>
-                            <p class="card-text" style="border-radius: 1%; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-                                {{foto.descricao}}
-                            </p>
-                        </div>
-                    </div>
-                </a>
-               
-            {% endif %}
-        {% endfor %}
-
-
-        {% if user == "AnonymousUser" %}
-        
-            <h1>Pequisa não existe</h1>
-        {% endif %}
+    <main>
+        <section class="fotografias">
+            {% for foto in fotos %}
+                <div>
+                    <img src="static/{{foto.foto}}" width="200px" alt="">
+                    olaldadladcaca
+                </div>
+            {% endfor %}
+           
+        </section>
     </main>
+            
+           
+
+    </main>
+
+
 </body>
 </html>
     
