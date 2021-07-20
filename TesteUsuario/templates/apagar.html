@@ -1,30 +1,52 @@
-{% extends 'index.html' %}
 
-{% block cabeca %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}" >
-{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/css/bootstrap.min.css'%}" >
+    <script src="{% static 'css/js/bootstrap.bundle.min.js' %}"></script>
 
-{% block main %}
-    <main class="vf-main">
-        <img class="vf-img" src="static/{{fotoApagar.foto}}" alt="">
+</head>
+
+
+
+<body>
+    
+
+    
+    <main>
+        <section >
+            <img class="vf-img" src="static/{{fotoApagar.foto}}" alt="">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    
+                    <a href="{% url 'TesteUsuario:confirmacao' fotoApagar.pk %}" class="btn btn-outline-secondary">
+                        <button class="btn btn-outline-danger">Confirmar</button>
+                    </a>
+                    <a href=" {% url 'TesteUsuario:principal'  %} " class="btn btn-outline-secondary">
+                        <button class="btn btn-outline-success" >Cancelar</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+            
+           
+
     </main>
 
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <div class="d-grid gap-2 col-6 mx-auto">
-            
-            <a href="{% url 'TesteUsuario:confirmacao' fotoApagar.pk %}" class="btn btn-outline-secondary">
-                <button class="btn btn-outline-danger">Confirmar</button>
-            </a>
-            <a href=" {% url 'TesteUsuario:principal'  %} " class="btn btn-outline-secondary">
-                <button class="btn btn-outline-success" >Cancelar</button>
-            </a>
-        </div>
-    </div>
+
+</body>
+</html>
+    
 
 
-{% endblock %}
-
-{% block pesquisa %}
-
-{% endblock %}
+  

@@ -8,7 +8,10 @@ from TesteUsuario.models import Foto, User
 
 def registar (request):
     usuario = CriaUsuario(request.POST or None)
+    
     if request.POST:
+        dataNascimento = request.POST["dataNascimento"]
+        usuario.instance.dataNascimento = dataNascimento
         if usuario.is_valid():
             usuario.save()
             email = usuario.cleaned_data["username"]

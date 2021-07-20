@@ -1,29 +1,78 @@
-{% extends 'index.html' %}
 
-
-
-{% block cabeca %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}" >
-{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/css/bootstrap.min.css'%}" >
+    <script src="{% static 'css/js/bootstrap.bundle.min.js' %}"></script>
 
-{% block main %}
-    <main class="vf-main">
-        <img class="vf-img" src="static/{{fotoVisual.foto}}" alt="">
+</head>
+
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Perfil</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Principal</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Registar</a>
+                  </li>
+
+                  <li>
+                    <a class="nav-link" href="#">Iniciar Sessão</a>
+                  </li>
+
+                </ul>
+
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">OK</button>
+                </form>
+
+              </div>
+            </div>
+          </nav>
+    </header>
+
+
+    
+    <main>
+        <section>
+            <img class="vf-img" src="static/{{fotoVisual.foto}}" alt="">
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    
+                    <a href="{% url 'TesteUsuario:editar' fotoVisual.pk %}" class="btn btn-outline-secondary">
+                        <button class="btn btn-outline-success">Editar</button>
+                    </a>
+                    <a href=" {% url 'TesteUsuario:apagar' fotoVisual.pk %} " class="btn btn-outline-secondary">
+                        <button class="btn btn-outline-danger" >Apagar</button>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
+          
+
+</body>
+</html>
     
 
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <div class="d-grid gap-2 col-6 mx-auto">
-            
-            <a href="{% url 'TesteUsuario:editar' fotoVisual.pk %}" class="btn btn-outline-secondary">
-                <button class="btn btn-outline-success">Editar</button>
-            </a>
-            <a href=" {% url 'TesteUsuario:apagar' fotoVisual.pk %} " class="btn btn-outline-secondary">
-                <button class="btn btn-outline-danger" >Apagar</button>
-            </a>
-        </div>
-    </div>
-    
-{% endblock %}
 
+  

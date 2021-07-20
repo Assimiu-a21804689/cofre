@@ -1,70 +1,124 @@
-{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/css/bootstrap.min.css'%}" >
+    <script src="{% static 'css/js/bootstrap.bundle.min.js' %}"></script>
+
+</head>
 
 
-{% block main %}
-    <form method="post" class="row g-3">
-        {% csrf_token %}
 
-        <div class="col-md-4">
-            <label for="validationServer01" class="form-label">Nome</label>
-            <div type="text" class="form-control is-valid" id="validationServer01" name="nome" value="Mark" required> 
-                {{form.nome}}
-            </div>
-            <div class="valid-feedback">
-                Campo obrigatório
-            </div>
-        </div>
+<body><header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Perfil</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Principal</a>
+              </li>
+              <li>
+                <a class="nav-link" href="{% url 'TesteUsuario:conetar' %}">Voltar</a>
+              </li>
 
-        <div class="col-md-4">
-            <label for="validationServer01" class="form-label">Apelido</label>
-            <div type="text" class="form-control is-valid" id="validationServer01" name="apelido" value="Mark" required> 
-                {{form.apelido}}
-            </div>
-            <div class="valid-feedback">
-                Campo obrigatório
-            </div>
-        </div>
-        <div class="col-md-4">
-            <label for="validationServer01" class="form-label">Data de Nascimento</label>
-            <div type="text" class="form-control is-valid" id="validationServer01" name="dataNascimento" value="Mark" required> 
-                {{form.dataNascimento}}
-            </div>
-            <div class="valid-feedback">
-                Campo obrigatório
-            </div>
-        </div>
+            </ul>
 
-        <div class="col-md-4">
-            <label for="validationServer01" class="form-label">E-mail</label>
-            <div type="text" class="form-control is-valid" id="validationServer01" name="email" value="Mark" required> 
-                {{form.username}}
-            </div>
-            <div class="valid-feedback">
-                Campo obrigatório
-            </div>
-        </div>
-        <div class="col-md-4">
-            <label for="validationServer01" class="form-label">Senha</label>
-            <div type="text" class="form-control is-valid" id="validationServer01" name="senha1" value="Mark" required> 
-                {{form.password1}}
-            </div>
-            <div class="valid-feedback">
-                Campo obrigatório
-            </div>
-        </div>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">OK</button>
+            </form>
 
-        <div class="col-md-4">
-            <label for="validationServer01" class="form-label">Confirmação de senha</label>
-            <div type="text" class="form-control is-valid" id="validationServer01" name="senha2" value="Mark" required> 
-                {{form.password2}}
-            </div>
-            <div class="valid-feedback">
-                Campo obrigatório
-            </div>
+          </div>
         </div>
+      </nav>
+</header>
+
+    
+    <main>
+        <section >
+
+            <form method="post" class="registo">
+                {% csrf_token %}
+                <div>
+                    <label for="validationServer01" class="form-label">Nome</label>
+                    <div type="text" class="form-control is-valid" id="validationServer01" name="nome" value="Mark" required> 
+                        {{form.nome}}
+                    </div>
+                    <div class="valid-feedback">
+                        Campo obrigatório
+                    </div>
+                </div>
         
-
-        <input type="submit" class="form-control">
+                <div>
+                    <label for="validationServer01" class="form-label">Apelido</label>
+                    <div type="text" class="form-control is-valid" id="validationServer01" name="apelido" value="Mark" required> 
+                        {{form.apelido}}
+                    </div>
+                    <div class="valid-feedback">
+                        Campo obrigatório
+                    </div>
+                </div>
+                <div>
+                    <label for="validationServer01" class="form-label">Data de Nascimento</label>
+                    <div type="text" class="form-control is-valid" id="validationServer01" name="dataNascimento" value="Mark" required> 
+                        <input type="date" name="dataNascimento">
+                    </div>
+                    <div class="valid-feedback">
+                        Campo obrigatório
+                    </div>
+                </div>
         
-    </form>
-{% endblock  %}
+                <div>
+                    <label for="validationServer01" class="form-label">E-mail</label>
+                    <div type="text" class="form-control is-valid" id="validationServer01" name="email" value="Mark" required> 
+                        {{form.username}}
+                    </div>
+                    <div class="valid-feedback">
+                        Campo obrigatório
+                    </div>
+                </div>
+                <div>
+                    <label for="validationServer01" class="form-label">Senha</label>
+                    <div type="text" class="form-control is-valid" id="validationServer01" name="senha1" value="Mark" required> 
+                        {{form.password1}}
+                    </div>
+                    <div class="valid-feedback">
+                        Campo obrigatório
+                    </div>
+                </div>
+        
+                <div>
+                    <label for="validationServer01" class="form-label">Confirmação de senha</label>
+                    <div type="text" class="form-control is-valid" id="validationServer01" name="senha2" value="Mark" required> 
+                        {{form.password2}}
+                    </div>
+                    <div class="valid-feedback">
+                        Campo obrigatório
+                    </div>
+                </div>
+                
+        
+                <input type="submit" class="form-control" value="Registar">
+                
+            </form>
+            
+        </section>
+    </main>
+          
+
+</body>
+</html>
+    
+
+
+  

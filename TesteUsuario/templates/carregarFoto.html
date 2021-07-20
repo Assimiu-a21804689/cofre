@@ -1,30 +1,89 @@
-{% extends 'index.html' %}
 
-{% block main %}
 
-  <h1>Conseguiu chegar aqui {{user.username}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     
-    <form class="row g-3" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="col-md-12">
-            <label for="imagem" class="form-label">Seleciona Seus ficheiros para guardar</label>
-            <input class="form-control" type="file" multiple name="imagem" id="imagem">
-        </div>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/css/bootstrap.min.css'%}" >
+    <script src="{% static 'css/js/bootstrap.bundle.min.js' %}"></script>
 
-        <div class="col-md-12">
-            <label for="titulo" class="form-label">Titulo da foto</label>
-            <input type="text" class="form-control" name="titulo" id="titulo" rows="3"></textarea>         
-        </div>
-
-        <div class="col-md-12">
-            <label for="descricao" class="form-label">Descrição de foto</label>
-            <textarea class="form-control" name="descricao" id="descricao" rows="3"></textarea>         
-        </div>
-
-        <div class="col-md-12">
-            <input type="submit" class="form-control" id="submit" name="submit">
-        </div>
-    </form>
+</head>
 
 
-{% endblock  %}
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Perfil</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Principal</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Registar</a>
+                  </li>
+
+                  <li>
+                    <a class="nav-link" href="#">Iniciar Sessão</a>
+                  </li>
+
+                </ul>
+
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">OK</button>
+                </form>
+
+              </div>
+            </div>
+          </nav>
+    </header>
+
+
+    
+    <main>
+        <section >
+            <h1>Conseguiu chegar aqui {{user.username}}</h1>
+    
+            <form class="row g-3" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-md-12">
+                    <label for="imagem" class="form-label">Seleciona Seus ficheiros para guardar</label>
+                    <input class="form-control" type="file" multiple name="imagem" id="imagem">
+                </div>
+
+                <div class="col-md-12">
+                    <label for="titulo" class="form-label">Titulo da foto</label>
+                    <input type="text" class="form-control" name="titulo" id="titulo" rows="3"></textarea>         
+                </div>
+
+                <div class="col-md-12">
+                    <label for="descricao" class="form-label">Descrição de foto</label>
+                    <textarea class="form-control" name="descricao" id="descricao" rows="3"></textarea>         
+                </div>
+
+                <div class="col-md-12">
+                    <input type="submit" class="form-control" id="submit" name="submit">
+                </div>
+            </form>
+        </section>
+    </main>
+            
+      
+</body>
+</html>
+    
+
+
+  
